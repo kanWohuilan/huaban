@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-9-30: Created.
+-->
+<svg>
+<metadata>
+Created by iconfont
+</metadata>
+<defs>
+
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    ascent="896"
+    descent="-128"
+  />
+    <missing-glyph />
+    
+    <glyph glyph-name="tubiao39" unicode="&#58920;" d="M512 896C227.84 896 0 668.16 0 384s227.84-512 512-512c284.096 0 512 227.84 512 512S796.096 896 512 896L512 896zM768 199.68 696.256 128 512 312.32 327.616 128 256 199.68 440.256 384 256 568.32 327.616 640 512 455.68 696.256 640 768 568.32 583.616 384 768 199.68 768 199.68zM768 199.68"  horiz-adv-x="1024" />
+
+    
+
+
+  </font>
+</defs></svg>
