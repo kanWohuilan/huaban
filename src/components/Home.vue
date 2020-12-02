@@ -1,5 +1,5 @@
 <template>
-  <div @click="searchingShow = false; hotShow =false">
+  <div >
     <div class="header">
       <div class="Nav-menu">
         <div class="left">
@@ -236,11 +236,15 @@ export default {
     window.addEventListener('scroll',this.scrollTo)
    setTimeout( () => {
      this.waterFall()
-   },500)
-  
+   },600)
+   this.$nextTick(() => {
+     document.body.addEventListener('click',this.hide)
+   })
     
     this.histroylist =
       JSON.parse(window.localStorage.getItem("searchRecentWords")) || [];
+
+       
   },
   created() {
      class Card{
@@ -268,6 +272,10 @@ export default {
   },
 
   methods: {
+    hide() {
+      this.searchingShow = false
+      this.hotShow =false
+    },
     scrollTo() {
       let scrolltop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
       this.scrolltop = scrolltop
@@ -319,15 +327,20 @@ export default {
         // let columns= parseInt(pageclientWidth / (itemWidth + gap))
         console.log(columns);
         let arr = []
-        
+        //遍历所有子元素
         for (let i = 0; i < cards.length; i++) {
+          //第一行元素的top = 0 ,left = 元素宽度+间距 *遍历列数
+          //并且把第一行元素的高度push一个数组
           if(i < columns) {
             this.$refs.imgs.children[i].style.top = 0
             // cards[i].style.top= 0 
             this.$refs.imgs.children[i].style.left = (itemWidth + gap) * i + 'px'
             arr.push(this.$refs.imgs.children[i].offsetHeight)
             console.log(arr);
-          }else{
+          }
+          //当有超出第一列的元素时,遍历原数组 拿到最小高度的元素高度 和index//并且设置超过的元素top = 数组中最小高度+间距 left=数组最小元素的offsetleft
+          //每设置一个元素,arr数组中最小元素要加一次设置元素的高度和间距 // 保持arr数组为列数排列,元素的值等于列高
+          else{
             let minHeight = arr[0]
             let index = 0
             for (let j = 0; j < arr.length; j++) {
@@ -787,7 +800,7 @@ export default {
       width 80%
       margin: 0 auto;
       position: relative;
-      left  5%
+      
 
       .column 
         transition: all .15s ease-in-out,box-shadow .15s ease-in-out

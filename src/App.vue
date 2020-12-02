@@ -23,6 +23,7 @@ html {
   background: #f5f5f5;
 }
 body {
+  height: 100vh;
   font-size: 18px;
   font-family: "helvetica neue",arial,sans-serif
 }
